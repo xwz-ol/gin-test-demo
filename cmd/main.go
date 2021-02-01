@@ -2,14 +2,26 @@ package main
 
 import (
 	"fmt"
+	"gin-demo/conf"
 	"github.com/gin-gonic/gin"
+	"github.com/go-kratos/kratos/pkg/log"
 )
 
 func main ()() {
-	gintest := gin.Default()
-	ginEngine := GinRouter(gintest)
+	// conf Init
+	if err := conf.Init(); err != nil {
+		log.Error("conf.Init() error(%v)", err)
+		panic(err)
+	}
+	// log Init
+	log.Init(conf.Conf.Log)
+	defer log.Close()
 
-	gintest.GET("/ping", test)
+	log.Info("-------------project start-------------")
+	ginTest := gin.Default()
+	ginEngine := GinRouter(ginTest)
+
+	ginTest.GET("/ping", test)
 
 	ginEngine.Run(":8080")
 }
