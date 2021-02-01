@@ -23,46 +23,6 @@ grpcclient:
   addr: direct://default/127.0.0.1:9007
   timeout: 10s
 
-http:
-  mode: release
-  cookieDomain: ""
-  cookieName: ecmc-user
-
-sso:
-  enable: false
-  ssoAddr: 'http://{sso-host}'
-  redirectURL: 'http://{rdb-host}/auth-callback'
-  clientId: ""
-  clientSecret: ""
-  apiKey: ""
-  attributes:
-    dispname: display_name
-    email: email
-    phone: phone
-    im: ""
-    coverAttributes: false
-    stateExpiresIn: 300
-    captcha: false
-    tokens:
-      - rdb-builtin-token
-
-ldap:
-  host: ldap.example.org
-  port: 389
-  baseDn: dc=example,dc=org
-  bindUser: cn=manager,dc=example,dc=org
-  bindPass: '*******'
-  authFilter: '(&(uid=%s))'
-  attributes:
-    dispname: cn
-    email: mail
-    phone: mobile
-    im: ""
-    coverAttributes: false
-    autoRegist: true
-    tls: false
-    startTLS: false
-
 redisc:
   enable: true
   addr: 127.0.0.1:6379
@@ -71,13 +31,3 @@ redisc:
   timeout:
     conn: 500
     read: 3000
-    write: 3000
-
-collector:
-  dir: /etc/kops/share/monitor-api/collectors
-
-transfer:
-  addr: 10.10.0.2:8008
-
-judge:
-  addr: 0.0.0.0:8015
