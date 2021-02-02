@@ -5,7 +5,7 @@ import (
 	"github.com/go-kratos/kratos/pkg/conf/paladin"
 	"github.com/go-kratos/kratos/pkg/log"
 	xtime "github.com/go-kratos/kratos/pkg/time"
-	"github.com/go-xorm/xorm"
+	// "github.com/go-xorm/xorm"
 )
 
 // conf init

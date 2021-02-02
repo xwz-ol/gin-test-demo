@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"gin-demo/conf"
+	"gin-test-demo/conf"
+	"gin-test-demo/dao"
 	"github.com/gin-gonic/gin"
 	"github.com/go-kratos/kratos/pkg/log"
 )
@@ -17,13 +18,15 @@ func main ()() {
 	log.Init(conf.Conf.Log)
 	defer log.Close()
 
+	// New Dao And init
+	dao.New(conf.Conf)
 	log.Info("-------------project start-------------")
 	ginTest := gin.Default()
 	ginEngine := GinRouter(ginTest)
 
 	ginTest.GET("/ping", test)
 
-	ginEngine.Run(":8080")
+	ginEngine.Run(conf.Conf.Web.Addr)
 }
 // test .
 func test(context *gin.Context) {
