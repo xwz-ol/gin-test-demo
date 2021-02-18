@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+<<<<<<< HEAD
 	"gin-demo/conf"
 	"gin-demo/model"
 	"github.com/gin-gonic/gin"
@@ -10,6 +11,12 @@ import (
 	"golang.org/x/net/websocket"
 	"net/http"
 	"time"
+=======
+	"gin-test-demo/conf"
+	"gin-test-demo/dao"
+	"github.com/gin-gonic/gin"
+	"github.com/go-kratos/kratos/pkg/log"
+>>>>>>> 1f5125ac6e2dac1b553f1b3f48563f86940096d6
 )
 
 
@@ -28,6 +35,7 @@ func main ()() {
 	log.Init(conf.Conf.Log)
 	defer log.Close()
 
+<<<<<<< HEAD
 	log.Info("-------------project start-------------")
 	ginTest := gin.Default()
 	ginTest.LoadHTMLGlob("./html/*")
@@ -56,6 +64,22 @@ func main ()() {
 	func test(context *gin.Context) {
 		context.JSON(200,gin.H{
 			"message": "Hello,world!",
+=======
+	// New Dao And init
+	dao.New(conf.Conf)
+	log.Info("-------------project start-------------")
+	ginTest := gin.Default()
+	ginEngine := GinRouter(ginTest)
+
+	ginTest.GET("/ping", test)
+
+	ginEngine.Run(conf.Conf.Web.Addr)
+}
+// test .
+func test(context *gin.Context) {
+	context.JSON(200,gin.H{
+		"message": "Hello,world!",
+>>>>>>> 1f5125ac6e2dac1b553f1b3f48563f86940096d6
 	})
 }
 

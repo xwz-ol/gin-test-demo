@@ -7,10 +7,14 @@ web:
 
 log:
   family: xxx-service
-  dir: /var/log/kops/monitor-api
+  dir: /var/log/gintest/
 
 orm:
+<<<<<<< HEAD
   dsn: root:Kylin123.@tcp(49.232.216.78:3306)/gin_demo?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8
+=======
+  dsn: 'root:$password@tcp($ip:$port)/gin_demo?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8'
+>>>>>>> 1f5125ac6e2dac1b553f1b3f48563f86940096d6
   active: 5
   idle: 5
   idleTimeout: 4h
