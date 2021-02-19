@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/denisenkom/go-mssqldb v0.0.0-20191124224453-732737034ffd // indirect
+	github.com/garyburd/redigo v1.6.0
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-kratos/kratos v0.6.0
 	github.com/go-playground/validator/v10 v10.4.1 // indirect

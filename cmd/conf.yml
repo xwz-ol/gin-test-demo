@@ -10,7 +10,7 @@ log:
   dir: /var/log/gintest/
   v: 1
 orm:
-  dsn: xxx:xxxx@tcp(xxxx)/xxx?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8
+  dsn: root:Kylin123.@tcp(49.232.216.78:3306)/gin_demo?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8
   active: 5
   idle: 5
   idleTimeout: 4h
@@ -25,8 +25,8 @@ grpcclient:
 
 redisc:
   enable: true
-  addr: 127.0.0.1:6379
-  pass: ""
+  addr: 127.0.0.1:16379
+  pass: "Kylin123."
   idle: 5
   timeout:
     conn: 500

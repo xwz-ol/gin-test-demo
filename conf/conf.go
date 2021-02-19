@@ -21,10 +21,25 @@ type Config struct {
 	//GrpcServer      *warden.ServerConfig         `yaml:"grpcserver"`
 	//GrpcClient      *client.RPCClientConfig      `yaml:"grpcclient"`
 
-	//Redis  *RedisSection            `yaml:"redisc"`
+	Redis  *RedisSection            `yaml:"redisc"`
 
 }
 
+// RedisSection .
+type RedisSection struct {
+	Enable  bool           `yaml:"enable"`
+	Addr    string         `yaml:"addr"`
+	Pass    string         `yaml:"pass"`
+	Idle    int            `yaml:"idle"`
+	Timeout TimeoutSection `yaml:"timeout"`
+}
+
+// TimeoutSection .
+type TimeoutSection struct {
+	Conn  int `yaml:"conn"`
+	Read  int `yaml:"read"`
+	Write int `yaml:"write"`
+}
 
 type ormConfig struct {
 	DSN         string         `yaml:"dsn"`			// data source name.
