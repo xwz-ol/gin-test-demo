@@ -5,9 +5,9 @@ import (
 	"gin-test-demo/conf"
 	"gin-test-demo/model"
 	"github.com/go-kratos/kratos/pkg/log"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"time"
-	_ "github.com/go-sql-driver/mysql"
 )
 
 // Dao .
@@ -27,7 +27,7 @@ func New(conf *conf.Config) (dao *Dao){
 	tmp := &xorm.Engine{}
 
 	dao = &Dao{DB:tmp}
-	
+
 	if db == tmp {
 		return
 	} else {

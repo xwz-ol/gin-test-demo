@@ -21,6 +21,7 @@ func main ()() {
 	// New Dao And init
 	dao.New(conf.Conf)
 	log.Info("-------------project start-------------")
+	log.V(1).Info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxtestxxxxxxxxxxx")
 	ginTest := gin.Default()
 	ginEngine := GinRouter(ginTest)
 
@@ -30,6 +31,7 @@ func main ()() {
 }
 // test .
 func test(context *gin.Context) {
+	log.V(1).Info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 	context.JSON(200,gin.H{
 		"message": "Hello,world!",
 	})
@@ -42,7 +44,6 @@ func GinRouter(r *gin.Engine) *gin.Engine {
 	})
 
 	rr = r.Group("/a")
-
 	Routers(rr)
 
 	return r
