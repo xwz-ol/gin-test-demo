@@ -17,7 +17,7 @@ type Config struct {
 	Version	string  	`yaml:"version"`
 	Web		WebSession	`yaml:"web"`
 	Log             	*log.Config                  `yaml:"log"`
-	ORM             	ormConfig                  `yaml:"orm"`
+	ORM             	*ormConfig                  `yaml:"orm"`
 	//GrpcServer      *warden.ServerConfig         `yaml:"grpcserver"`
 	//GrpcClient      *client.RPCClientConfig      `yaml:"grpcclient"`
 

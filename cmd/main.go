@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"gin-test-demo/conf"
+	"gin-test-demo/dao"
 	"gin-test-demo/model"
 	"github.com/gin-gonic/gin"
 	"github.com/go-kratos/kratos/pkg/log"
@@ -28,7 +29,7 @@ func main ()() {
 	// log Init
 	log.Init(conf.Conf.Log)
 	defer log.Close()
-
+	dao.New(conf.Conf)
 	log.Info("-------------project start-------------")
 	ginTest := gin.Default()
 	ginTest.LoadHTMLGlob("./html/*")
@@ -51,7 +52,7 @@ func main ()() {
 
 		ginTest.GET("/ping", test)
 
-		ginEngine.Run(":8080")
+		ginEngine.Run(conf.Conf.Web.Addr)
 	}
 	// test .
 	func test(context *gin.Context) {
